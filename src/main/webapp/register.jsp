@@ -14,12 +14,7 @@
     Email: <input type="email" name="email" required><br><br>
     Password: <input type="password" name="password" required><br><br>
 
-    Role:
-    <select name="role">
-        <option value="user">Student</option>
-        <option value="admin">Admin</option>
-    </select>
-
+<input type="hidden" name="role" value="student">
     <br><br>
 
     <button type="submit">Register</button>

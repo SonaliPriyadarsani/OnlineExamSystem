@@ -13,8 +13,7 @@ public class RegisterServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String pass = req.getParameter("password");
-        String role = req.getParameter("role");
-
+        String role = "student";
         try {
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(

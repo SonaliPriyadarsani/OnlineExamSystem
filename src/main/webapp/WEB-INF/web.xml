@@ -21,6 +21,26 @@
     <url-pattern>/LoginServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>AddSubjectServlet</servlet-name>
+<servlet-class>com.controller.AddSubjectServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>AddSubjectServlet</servlet-name>
+<url-pattern>/AddSubjectServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>AddQuestionServlet</servlet-name>
+    <servlet-class>com.controller.AddQuestionServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AddQuestionServlet</servlet-name>
+    <url-pattern>/AddQuestionServlet</url-pattern>
+</servlet-mapping>
+
 <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
 </welcome-file-list>

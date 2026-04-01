@@ -36,7 +36,6 @@ public class LoginServlet extends HttpServlet {
                     res.sendRedirect("student.jsp");
                 }
             } else {
-                // ❌ Wrong credentials → go to register
                 res.sendRedirect("register.jsp");
             }
 
