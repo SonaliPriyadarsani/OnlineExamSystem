@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Student Dashboard</title>
+<title>logout</title>
 </head>
 <body>
-<a href="logout.jsp">Logout</a>
-<h1>Welcome Student</h1>
-<a href="chooseSubject.jsp">Start Exam</a>
-<a href="viewResult.jsp">View My Results</a>
+<%
+session.invalidate();
+response.sendRedirect("index.jsp");
+%>
 </body>
 </html>

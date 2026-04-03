@@ -6,7 +6,7 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-
+<a href="logout.jsp">Logout</a>
 <h1>Welcome Admin</h1>
 
 <hr>
@@ -21,6 +21,7 @@
 
 <a href="viewQuestions.jsp">View Questions</a>
 
+<a href="viewData.jsp">View Dashboard</a>
 
 </body>
 </html>
