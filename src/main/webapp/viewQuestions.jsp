@@ -1,16 +1,24 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.dao.DBConnection" %>
 
+<!DOCTYPE html>
 <html>
 <head>
+
 <title>View Questions</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body style="background:#f4f6fb">
 
-<h2>All Questions</h2>
+<div class="container mt-5">
 
-<table border="1">
+<h2 class="text-center mb-4">All Questions</h2>
+
+<table class="table table-bordered table-striped">
+
 <tr>
 <th>ID</th>
 <th>Subject</th>
@@ -23,16 +31,20 @@
 </tr>
 
 <%
+
 try{
 
 Connection con = DBConnection.getConnection();
+
 PreparedStatement ps = con.prepareStatement("select * from questions");
+
 ResultSet rs = ps.executeQuery();
 
 while(rs.next()){
 %>
 
 <tr>
+
 <td><%=rs.getInt("id")%></td>
 <td><%=rs.getInt("subject_id")%></td>
 <td><%=rs.getString("question")%></td>
@@ -41,6 +53,7 @@ while(rs.next()){
 <td><%=rs.getString("option3")%></td>
 <td><%=rs.getString("option4")%></td>
 <td><%=rs.getString("correct_answer")%></td>
+
 </tr>
 
 <%
@@ -49,10 +62,13 @@ while(rs.next()){
 }catch(Exception e){
 e.printStackTrace();
 }
-
 %>
 
 </table>
+
+<a href="admin.jsp" class="btn btn-secondary">Back to Dashboard</a>
+
+</div>
 
 </body>
 </html>

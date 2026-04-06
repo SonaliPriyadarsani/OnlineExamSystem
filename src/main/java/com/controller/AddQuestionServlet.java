@@ -38,8 +38,7 @@ ps.setString(7,correct);
 ps.executeUpdate();
 
 
-res.sendRedirect("addQuestion.jsp");
-
+res.sendRedirect("addQuestion.jsp?msg=added");
 }catch(Exception e){
 e.printStackTrace();
 }

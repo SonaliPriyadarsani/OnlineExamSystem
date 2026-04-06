@@ -1,52 +1,125 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.dao.DBConnection" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Admin Add Question</title>
+<title>Add Question</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+background:#f4f6fb;
+font-family:Arial;
+}
+
+.card{
+margin-top:40px;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+</style>
+
 </head>
+
 <body>
-<h2>Add Question</h2>
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-md-8">
+
+<div class="card">
+
+<h3 class="text-center mb-4">Add Question</h3>
 
 <form action="<%=request.getContextPath()%>/AddQuestionServlet" method="post">
-Subject ID
-<input type="number" name="subject_id">
 
-<br><br>
+<div class="mb-3">
+<label>Subject</label>
 
-Question
-<input type="text" name="question">
+<select name="subject_id" class="form-control">
 
-<br><br>
+<%
+try{
 
-Option 1
-<input type="text" name="op1">
+Connection con = DBConnection.getConnection();
+PreparedStatement ps = con.prepareStatement("SELECT * FROM subjects");
+ResultSet rs = ps.executeQuery();
 
-<br><br>
+while(rs.next()){
+%>
 
-Option 2
-<input type="text" name="op2">
+<option value="<%=rs.getInt("id")%>">
+<%=rs.getString("subject_name")%>
+</option>
 
-<br><br>
+<%
+}
 
-Option 3
-<input type="text" name="op3">
+}catch(Exception e){
+e.printStackTrace();
+}
+%>
 
-<br><br>
+</select>
 
-Option 4
-<input type="text" name="op4">
+</div>
 
-<br><br>
+<div class="mb-3">
+<label>Question</label>
+<input type="text" name="question" class="form-control">
+</div>
 
-Correct Answer
-<input type="text" name="correct">
+<div class="mb-3">
+<label>Option 1</label>
+<input type="text" name="op1" class="form-control">
+</div>
 
-<br><br>
+<div class="mb-3">
+<label>Option 2</label>
+<input type="text" name="op2" class="form-control">
+</div>
 
-<button type="submit">Add Question</button>
+<div class="mb-3">
+<label>Option 3</label>
+<input type="text" name="op3" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>Option 4</label>
+<input type="text" name="op4" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>Correct Answer</label>
+
+<select name="correct" class="form-control">
+<option value="option1">Option 1</option>
+<option value="option2">Option 2</option>
+<option value="option3">Option 3</option>
+<option value="option4">Option 4</option>
+</select>
+
+</div>
+
+<button class="btn btn-success w-100">Add Question</button>
 
 </form>
+
+<br>
+
+<a href="admin.jsp" class="btn btn-secondary w-100">Back to Dashboard</a>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
 </body>
 </html>
