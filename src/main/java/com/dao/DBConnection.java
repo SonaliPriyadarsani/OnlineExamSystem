@@ -10,8 +10,8 @@ public class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/online_exam",
-                "root",
-                "mysql"  
+                "1234",
+                "1234"  
             );
         } catch(Exception e) {
             e.printStackTrace();
